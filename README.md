@@ -1,0 +1,3 @@
+# Sistema-de-Controle-de-Despesas-Pessoais
+Este projeto visa criar um sistema de controle de despesas pessoais com relatórios automáticos e alertas de gastos. O sistema deve permitir o cadastro de categorias, o controle mensal das finanças e o cálculo de saldo disponível, com armazenamento persistente em JSON ou SQLite.
+As classes envolvidas são Lancamento, Receita, Despesa, Categoria, OrcamentoMensal e Alerta.
