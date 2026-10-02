@@ -57,6 +57,7 @@ Herda de `Lancamento`.
 
 **Métodos:**
 - `adicionarLancamento()`
+- `removerLancamento()`
 - `calcularTotalReceitas()`
 - `calcularTotalDespesas()`
 - `calcularSaldoMensal()`
@@ -78,11 +79,13 @@ Herda de `Lancamento`.
 **Atributos:** nenhum.
 
 **Métodos:**
-- `despesasPorCategoria()`
-- `despesasPorFormaPagamento()`
-- `percentualPorCategoria()`
-- `mesMaisEconomico()`
-- `compararMeses()`
+- `despesasPorCategoria(orcamento)` — totais por objeto `Categoria`.
+- `despesasPorFormaPagamento(orcamento)` — listas de despesas por forma de pagamento.
+- `percentualPorCategoria(orcamento)` — percentuais de 0 a 100; vazio quando não há despesas.
+- `mesMaisEconomico(orcamentos)` — orçamento com menor total de despesas; empate pelo mês mais antigo; `None` para lista vazia.
+- `compararMeses(orcamentos, mesesComparativo=3, dataReferencia=None)` — receitas, despesas e saldo em ordem cronológica, incluindo o mês de referência (atual por padrão) e os anteriores; meses sem orçamento são omitidos. Aceita `configuracao.mesesComparativo` como quantidade de meses.
+
+Os relatórios não alteram os dados recebidos. Categorias compartilhadas são agrupadas pelo mesmo objeto. Coleções de orçamentos não podem repetir mês e ano.
 
 ## Classe Configuracao
 
@@ -107,12 +110,18 @@ Herda de `Lancamento`.
 
 ## Classe GerenciadorFinanceiro
 
-**Atributos:** nenhum.
+**Atributos:**
+- `categorias`
+- `orcamentos`
+- `alertas`
+- `configuracao`
 
 **Métodos:**
 - `adicionarCategoria()`
 - `editarCategoria()`
 - `excluirCategoria()`
+- `adicionarOrcamento()`
+- `adicionarAlerta()`
 - `adicionarLancamento()`
 - `editarLancamento()`
 - `excluirLancamento()`
